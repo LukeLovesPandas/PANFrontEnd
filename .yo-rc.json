@@ -1,0 +1,8 @@
+{
+  "generator-ng-gen": {
+    "promptValues": {
+      "name": "PANFrontEnd"
+    },
+    "appName": "PANFrontEnd"
+  }
+}

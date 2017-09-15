@@ -1,0 +1,29 @@
+<div class="p-animals">
+    <div class="col-md-12 p-animals__inner">
+        <div class="col-md-12 center">
+            <div class="big-margin">
+                <div ng-if="vm.message" ng-class="{'alert-danger': vm.messageError, 'alert-info': !vm.messageError}" class="alert alert-dismissible alert-info" >
+                    <span>{{vm.message}}</span>
+                    <button type="button" ng-click="vm.clearMessage()" class="close"><span aria-hidden="true">×</span></button>
+                </div>
+            </div>
+            <div>
+                <form name="PanimalForm" novalidate>
+                    <label class="control-label">PANimal Name</label>
+                    <input name="name" class="form-control" type="text" ng-model="vm.selectedPanimal.name" required/>
+                    <div ng-if="!PanimalForm.$pristine && PanimalForm.name.$error.required">Name is Required</div>
+                    <label class="control-label">PANimal Image URL</label>
+                    <input name="url" class="form-control" type="text" ng-model="vm.selectedPanimal.url" required/>
+                    <div ng-if="!PanimalForm.$pristine && PanimalForm.url.$error.required">URL is Required</div>
+                </form>
+            </div>
+            <button ng-disabled="PanimalForm.$invalid" class="btn btn- btn-primary" ng-click="vm.handleSubmit(); PanimalForm.$setPristine(true)">Submit Yours Today!</button>
+            <button  class="btn btn- btn-default" ng-click="vm.clearSelected()">Clear</button>
+            <div><span>(Click a picture to edit)</span></div>
+        </div>
+        <div class="col-md-3 p-animal__entry" ng-repeat="panimal in vm.panimals">
+            <img class="p-animal-img" src="{{panimal.url}}" ng-click="vm.selectPanimal(panimal)">
+            <span class="center">{{panimal.name}}</span>
+        </div>
+    </div>
+</div>
