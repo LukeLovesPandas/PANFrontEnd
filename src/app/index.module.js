@@ -15,4 +15,5 @@ angular.module('pan-front-end', ['ngAnimate', 'ngTouch', 'ngSanitize', 'ngMessag
 	.service('panimalService', PanimalService)
 	.component('panimal', PanimalComponent)
 	.component('main', MainComponent)
+	.constant('ENDPOINT', "http://localhost:5000/api/panimal/")
 

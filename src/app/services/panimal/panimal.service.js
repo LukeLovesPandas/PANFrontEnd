@@ -1,23 +1,23 @@
 export class PanimalService {
-	constructor ($http) {
+	constructor ($http, ENDPOINT) {
 		'ngInject';
-
 		this.$http = $http;
+		this.ENDPOINT = ENDPOINT;
 	}
 
 	getPanimals() {
-		return this.$http.get("http://localhost:5000/api/panimal")
+		return this.$http.get(this.ENDPOINT)
 	}
 
 	getPanimal(id) {
-		return this.$http.get("http://localhost:5000/api/panimal/" + id)
+		return this.$http.get(this.ENDPOINT + id)
 	}
 
 	addPanimal(Panimal) {
-		return this.$http.post("http://localhost:5000/api/panimal", Panimal)
+		return this.$http.post(this.ENDPOINT, Panimal)
 	}
 
 	updatePanimal(Panimal) {
-		return this.$http.put("http://localhost:5000/api/panimal/" + Panimal.id, Panimal)
+		return this.$http.put(this.ENDPOINT + Panimal.id, Panimal)
 	}
 }
